@@ -1,0 +1,89 @@
+<!DOCTYPE html >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Aprenda SQL</title>
+
+    <script type="text/javascript">
+
+
+    </script>
+
+</head>
+<body>
+
+
+<div layout:fragment="content">
+    <section>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <!--                <li class="breadcrumb-item" aria-current="page"><a href="/posts">Posts</a></li>-->
+                <li class="breadcrumb-item active" aria-current="page">Início</li>
+            </ol>
+        </nav>
+        <div class="conteudo">
+            <h2>O que é SQL?</h2>
+            <p class="bgazul">
+                <b>SQL</b> é a sigla de <b>S</b>tructured <b>Q</b>uery <b>L</b>anguage, que significa "Linguagem de
+                consulta estruturada". É a linguagem padrão criada para armazenar, manipular e buscar dados em um Banco
+                de Dados.
+            </p>
+            <h3>Exemplo de um SELECT em SQL</h3>
+            <div class="exemplo">
+                <code>
+                    SELECT *
+                    <br>
+                    FROM CLIENTES
+                </code>
+            </div>
+            <p>Utilize o código acima no campo indicado e clique no botão "Executar SQL" para realizar sua primeira
+                consulta ao banco de dados </p>
+            <th:block th:insert="tabela"></th:block>
+
+            <div>
+                <p>Agora que você já executou seu primeiro comando SQL, navegue pelo menu ou utilize os botões "Anterior" e "Próximo"
+                    para conhecer um pouco mais sobre a linguagem SQL.</p>
+                <h3>O nosso objetivo</h3>
+                <p class="bgazul">
+                    O objetivo do <b>Aprenda SQL</b> é preparar um curso de SQL <b>em portugês</b>, online e grátis para iniciantes na área de programação, inspirado no <a target="_blank" href="https://www.w3schools.com/sql/">W3Schools</a>, onde
+                    é possível estudar os conceitos e <b>praticar</b> o que foi apresentado dentro da própria página, sem instalar nada. Ou seja, nosso curso pode ser realizado
+                    de qualquer dispositivo que tenha acesso a internet e utilize um navegador compatível com HTML5.
+
+
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+<footer>
+
+</footer>
+
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/scripts/scripts.js}"></script>
+</body>
+</html>

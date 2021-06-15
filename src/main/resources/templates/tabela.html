@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+</head>
+<body>
+<div class="bgazul pt-3">
+    <textarea rows="5" class="form-control" id="txtStringSQL" placeholder="select * from clientes"></textarea>
+    <div class="pt-3">
+        <input type="button" class="btn btn-success" onclick="executarSQL();" placeholder="botao" name="botao teste"
+               value="Executar SQL">
+    </div>
+
+    <div class="table-responsive pt-3" id="divResultado">
+
+
+        <div class="resultado">
+            <h4 >Resultado:</h4>
+            <p id="registrosEncontrados">            </p>
+            <table id="tabelaResultado" class="table table-bordered table-striped table-sm">
+                <thead></thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
