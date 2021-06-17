@@ -25,38 +25,47 @@
 <div layout:fragment="content">
     <section>
 
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item" aria-current="page"><a href="/index">Início</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Update</li>
-            </ol>
-        </nav>
-        <div class="conteudo">
-            <h2>O que é um SELECT?</h2>
-            <p class="bgazul">
-                O comando <b>SELECT</b>, que significa "selecionar", é usado para buscar informações em uma tabela do BD (banco de dados). Geralmente é usado com a cláusula FROM seguido do nome da tabela.
 
+        <div class="conteudo">
+            <h2>Como usar o ORDER BY?</h2>
+            <p class="bgazul">
+                O palavra-chave <b>ORDER BY</b>, que significa "ordenar por", é usada para ordenar os registros selecionados em ordem crescente ou decrescente.
+                Podemos adicionar a palavra-chave <b>ASC</b> para usarmos a ordem crescente, para usar a ordem decrescente é necessário usar outra palavra-chave: <b>DESC</b>.
+                Se não adicionar nenhuma dessas palavras-chave, o padrão é por ordem crescente.
             </p>
-            <h3>Sintaxe de um SELECT em SQL</h3>
+            <h3>Sintaxe do ORDER BY</h3>
             <div class="exemplo">
 
                 <code>
                     SELECT nome_da_coluna, nome_da_coluna2, ...
                     <br>
-                    FROM nome_da_tabela;
+                    FROM nome_da_tabela
+                    <br>
+                    ORDER BY nome_da_coluna,nome_da_coluna2,...;
                 </code>
             </div>
-            <p>   No exemplo abaixo a tabela se chama "CLIENTES" e as colunas que serão exibidas sao "idCliente" e "nomeCliente". O ponto e vírgula ';' indica o fim da Query, mas não é obrigatório.</p>
+            <p>   Nos exemplos abaixo, usar o ASC ou usar nenhum, dá o mesmo resultado (crescente). Vamos supor que queremos ver os clientes em ordem alfabetica, então usamos '<b>ORDER BY</b> nomeCliente'. Usar o DESC mudará a ordem para decrescente.
+                Nos últimos exemplos usamos 2 colunas no ORDER BY, podemos usar quantas forem necessárias. A ordenação é feita na primeira coluna, em seguida, na segunda, e assim por diante.
+            </p>
             <div class="exemplo">
                 <code>
-                    SELECT idCliente, nomeCliente
+
+                    SELECT idCliente, nomeCliente, UFCliente    FROM CLIENTES ORDER BY nomeCliente;
                     <br>
-                    FROM CLIENTES;
+                    SELECT idCliente, nomeCliente, UFCliente    FROM CLIENTES ORDER BY nomeCliente ASC;
+                    <br>
+                    SELECT idCliente, nomeCliente, UFCliente    FROM CLIENTES ORDER BY nomeCliente DESC;
+                    <br>
+                    SELECT *    FROM CLIENTES ORDER BY nomeCliente, UFCliente;
+                    <br>
+                    SELECT *    FROM CLIENTES ORDER BY UFCliente, nomeCliente;
+                    <br>
+                    SELECT *    FROM CLIENTES ORDER BY UFCliente ASC, nomeCliente DESC;
                 </code>
                 <br>
 
             </div>
-            <p>Utilize vírgulas para separar os nomes das colunas ou utilize asterisco '*' no lugar do nome das colunas quando quiser trazer <b>todas</b> as colunas existentes na tabela </p>
+            <p>Altere os exemplos como desejar e perceba as diferenças nos resultados apresentados.</p>
             <th:block th:insert="tabela"></th:block>
 
             <div>
