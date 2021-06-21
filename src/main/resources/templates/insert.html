@@ -25,12 +25,7 @@
 <div layout:fragment="content">
     <section>
 
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item" aria-current="page"><a href="/index">Início</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Insert</li>
-            </ol>
-        </nav>
+
 
         <div class="conteudo">
             <h2>O que é um INSERT?</h2>
@@ -39,58 +34,39 @@
                 mas a sintaxe correta é INSERT INTO seguido do nome da tabela e os valores desejados conforme o exemplo.
 
             </p>
-            <h3>Sintaxe de um INSERT INTO em SQL</h3>
+            <h5>Sintaxe de um INSERT INTO em SQL</h5>
             <div class="exemplo">
 
                 <code>
-                    -- Especificando o nome dos campos da tabela que deseja inserir <br>
+
                     INSERT INTO nome_da_tabela (nome_da_coluna1,nome_da_coluna2, ...)
                     <br>
                     VALUES ('valor1', 'valor2', ...);
                 </code>
                <br>
                 <code>
-                    /* Não especificando o nome dos campos,
-                    dessa forma entende-se que todos os campos serão preenchidos,
-                    então deve-se colocar os valores na ordem correta */
+
                     <br>
                     INSERT INTO nome_da_tabela
                     <br>
                     VALUES ('valor1', 'valor2', ...);
                 </code>
             </div>
-            <p>   No exemplo abaixo a tabela se chama "CLIENTES" e as colunas que serão inseridas sao "nomeCliente" e "cidadeCliente".
+            <p class="bgbranco">   No exemplo abaixo a tabela se chama "CLIENTES" e as colunas que serão inseridas sao "nomeCliente" e "cidadeCliente".
                 Antes de executar o INSERT, faça um SELECT na tabela CLIENTES conforme você aprendeu na lição anterior e verifique os campos que ela possui.</p>
-            <div class="exemplo">
-                <code>
-                    INSERT INTO CLIENTES  (nomeCliente, cidadeCliente)
-                    <br>
-                    VALUES ('Maria José', 'Brasília');
-                </code>
-                <br>
+            <pre class="cm-s-default code exemplo">
+INSERT INTO CLIENTES  (nomeCliente, cidadeCliente)
+VALUES ('Maria José', 'Brasília');</pre>
 
-            </div>
-            <p>Após executar o INSERT, faça outra vez o SELECT e perceba que o campo idCliente será preenchido, mesmo não incluindo este campo na Query.
+            <p class="bgbranco">Após executar o INSERT, faça outra vez o SELECT e perceba que o campo idCliente será preenchido, mesmo não incluindo este campo na Query.
                 Isso ocorre pois o campo idCliente é do tipo INT <b>AUTOINCREMENT</b> ou seja, é um número inteiro que será preenchido automaticamente, adicionando +1 ao último número registrado.
                 O primeiro registro recebe o número 1, o segundo recebe o número 2, e assim por diante. </p>
             <th:block th:insert="tabela"></th:block>
 
             <div>
-                <p>Experimente alterar os comandos SQL apresentados, e monte sua própria instrução. Utilize nosso editor para executar e veja os resultados</p>
+                <p class="bgbranco">Experimente alterar os comandos SQL apresentados, e monte sua própria instrução. Utilize nosso editor para executar e veja os resultados</p>
                 <h3>Alguns conceitos importantes</h3>
-                <div class="bgazul">
 
-                    <p><b>Tabela</b>: é onde os dados do mesmo 'tipo' são armazenados no formato de linhas e colunas semelhante a uma planilha de Excel.
-                        Por exemplo, os dados de um cliente serão armazenados em uma tabela com nome de "CLIENTES" ou qualquer nome a sua escolha, mas é altamente
-                        recomendado criar nomes intuitivos, que de cara já dizem o tipo de informação que será armazenada ali.
-                    </p>
-                    <p><b>Banco de Dados</b>: é uma coleção de informações organizadas, estruturadas e armazenadas em um computador. Na maioria dos Bancos de Dados
-                        em operação nos dias de hoje, estão guardadas as tabelas que falamos anteriormente.
-                        Um Banco de Dados normalmente é gerenciado por um SGBD (Sistema gerenciador de banco de dados). O SGBD fornece diversas ferramentas para facilidar a manipulação dos dados armazenados. </p>
-                    <p><b>Instrução</b>: Também chamada de Query SQL, uma instrução é o comando completo, como uma frase. Ex: "SELECT idProd, nomeProd FROM PRODUTOS;"</p>
-                    <p><b>Cláusula</b>: São palavras reservadas para montar as Queries (Instruções). Ex: na instrução acima temos a cláusula SELECT e a cláusula FROM. Os nomes das colunas idProd e nomeProd são Termos identificadores, e o nome da tabela PRODUTOS também.</p>
-
-                </div>
             </div>
         </div>
     </section>

@@ -27,12 +27,7 @@
 <div layout:fragment="content">
     <section>
 
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <!--                <li class="breadcrumb-item" aria-current="page"><a href="/posts">Posts</a></li>-->
-                <li class="breadcrumb-item active" aria-current="page">Início</li>
-            </ol>
-        </nav>
+
         <div class="conteudo">
             <h2>O que é SQL?</h2>
             <p class="bgazul">
@@ -40,22 +35,19 @@
                 consulta estruturada". É a linguagem padrão criada para armazenar, manipular e buscar dados em um Banco
                 de Dados.
             </p>
-            <h3>Exemplo de um SELECT em SQL</h3>
-            <div class="exemplo">
-                <code>
-                    SELECT *
-                    <br>
-                    FROM CLIENTES
-                </code>
-            </div>
-            <p>Utilize o código acima no campo indicado e clique no botão "Executar SQL" para realizar sua primeira
+            <h5>Exemplo de um SELECT em SQL</h5>
+            <pre class="cm-s-default code exemplo">
+SELECT *
+FROM CLIENTES</pre>
+
+            <p  class="bgbranco">Utilize o código acima no campo indicado e clique no botão "Executar SQL" para realizar sua primeira
                 consulta ao banco de dados </p>
             <th:block th:insert="tabela"></th:block>
 
             <div>
-                <p>Agora que você já executou seu primeiro comando SQL, navegue pelo menu ou utilize os botões "Anterior" e "Próximo"
+                <p class="bgbranco">Agora que você já executou seu primeiro comando SQL, navegue pelo menu ou utilize os botões "Anterior" e "Próximo"
                     para conhecer um pouco mais sobre a linguagem SQL.</p>
-                <h3>O nosso objetivo</h3>
+                <h5>O nosso objetivo</h5>
                 <p class="bgazul">
                     O objetivo do <b>Aprenda SQL</b> é preparar um curso de SQL <b>em portugês</b>, online e grátis para iniciantes na área de programação, inspirado no <a target="_blank" href="https://www.w3schools.com/sql/">W3Schools</a>, onde
                     é possível estudar os conceitos e <b>praticar</b> o que foi apresentado dentro da própria página, sem instalar nada. Ou seja, nosso curso pode ser realizado

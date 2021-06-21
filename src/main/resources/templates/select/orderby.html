@@ -33,7 +33,7 @@
                 Podemos adicionar a palavra-chave <b>ASC</b> para usarmos a ordem crescente, para usar a ordem decrescente é necessário usar outra palavra-chave: <b>DESC</b>.
                 Se não adicionar nenhuma dessas palavras-chave, o padrão é por ordem crescente.
             </p>
-            <h3>Sintaxe do ORDER BY</h3>
+            <h5>Sintaxe do ORDER BY</h5>
             <div class="exemplo">
 
                 <code>
@@ -44,58 +44,30 @@
                     ORDER BY nome_da_coluna,nome_da_coluna2,...;
                 </code>
             </div>
-            <p>   Nos exemplos abaixo, usar o ASC ou usar nenhum, dá o mesmo resultado (crescente). Vamos supor que queremos ver os clientes em ordem alfabetica, então usamos '<b>ORDER BY</b> nomeCliente'. Usar o DESC mudará a ordem para decrescente.
+            <p class="bgbranco">   Nos exemplos abaixo, usar o ASC ou usar nenhum, dá o mesmo resultado (crescente). Vamos supor que queremos ver os clientes em ordem alfabetica, então usamos '<b>ORDER BY</b> nomeCliente'. Usar o DESC mudará a ordem para decrescente.
 
             </p>
-            <div class="exemplo">
-                <code>
+            <pre class="cm-s-default code exemplo">
+SELECT idCliente, nomeCliente, UFCliente FROM CLIENTES ORDER BY nomeCliente;
+SELECT idCliente, nomeCliente, UFCliente FROM CLIENTES ORDER BY nomeCliente ASC;
+SELECT idCliente, nomeCliente, UFCliente FROM CLIENTES ORDER BY nomeCliente DESC;</pre>
 
-                    SELECT idCliente, nomeCliente, UFCliente    FROM CLIENTES <b>ORDER BY nomeCliente;</b>
-                    <br>
-                    SELECT idCliente, nomeCliente, UFCliente    FROM CLIENTES <b>ORDER BY nomeCliente ASC;</b>
-                    <br>
-                    SELECT idCliente, nomeCliente, UFCliente    FROM CLIENTES <b>ORDER BY nomeCliente DESC;</b>
-
-                </code>
-                <br>
-
-            </div>
-            <p>
+            <p class="bgbranco">
                 Nos últimos exemplos usamos 2 colunas no ORDER BY, podemos usar quantas forem necessárias. A ordenação é feita na primeira coluna, em seguida, na segunda, e assim por diante.
             </p>
-            <div class="exemplo">
-                <code>
+            <pre class="cm-s-default code exemplo">
+SELECT * FROM CLIENTES ORDER BY nomeCliente, UFCliente;
+SELECT * FROM CLIENTES ORDER BY UFCliente, nomeCliente;
+SELECT * FROM CLIENTES ORDER BY UFCliente ASC, nomeCliente DESC;</pre>
 
 
-                    SELECT *    FROM CLIENTES <b>ORDER BY nomeCliente, UFCliente;</b>
-                    <br>
-                    SELECT *    FROM CLIENTES <b>ORDER BY UFCliente, nomeCliente;</b>
-                    <br>
-                    SELECT *    FROM CLIENTES <b>ORDER BY UFCliente ASC, nomeCliente DESC;</b>
-                </code>
-                <br>
-
-            </div>
-
-            <p>Execute os exemplos e perceba as diferenças nos resultados apresentados.</p>
+            <p class="bgbranco">Execute os exemplos e perceba as diferenças nos resultados apresentados.</p>
             <th:block th:insert="tabela"></th:block>
 
             <div>
-                <p>Você já aprendeu o DISTINCT, WHERE, e ORDER BY, tente montar uma query misturando os comandos</p>
-                <h3>Alguns conceitos importantes</h3>
-                <div class="bgazul">
+                <p class="bgbranco">Você já aprendeu o DISTINCT, WHERE, e ORDER BY, tente montar uma query misturando os comandos</p>
+                <h5>Alguns conceitos importantes</h5>
 
-                    <p><b>Tabela</b>: é onde os dados do mesmo 'tipo' são armazenados no formato de linhas e colunas semelhante a uma planilha de Excel.
-                        Por exemplo, os dados de um cliente serão armazenados em uma tabela com nome de "CLIENTES" ou qualquer nome a sua escolha, mas é altamente
-                        recomendado criar nomes intuitivos, que de cara já dizem o tipo de informação que será armazenada ali.
-                    </p>
-                    <p><b>Banco de Dados</b>: é uma coleção de informações organizadas, estruturadas e armazenadas em um computador. Na maioria dos Bancos de Dados
-                        em operação nos dias de hoje, estão guardadas as tabelas que falamos anteriormente.
-                        Um Banco de Dados normalmente é gerenciado por um SGBD (Sistema gerenciador de banco de dados). O SGBD fornece diversas ferramentas para facilidar a manipulação dos dados armazenados. </p>
-                    <p><b>Instrução</b>: Também chamada de Query SQL, uma instrução é o comando completo, como uma frase. Ex: "SELECT idProd, nomeProd FROM PRODUTOS;"</p>
-                    <p><b>Cláusula</b>: São palavras reservadas para montar as Queries (Instruções). Ex: na instrução acima temos a cláusula SELECT e a cláusula FROM. Os nomes das colunas idProd e nomeProd são Termos identificadores, e o nome da tabela PRODUTOS também.</p>
-
-                </div>
             </div>
         </div>
 

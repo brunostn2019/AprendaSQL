@@ -26,24 +26,25 @@
     <th:block th:insert="menu"></th:block>
 
 <header>
-    <div style="position: fixed; top: 0px; width: 100%;">
-    <nav class="navbar navbar-light bg-light" >
+    <div class="menuBarra">
+    <nav class="navbar navbar-light bg-light"  >
      <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
         <h1 class="navbar-brand mb-0 h1" style="font-weight:bold;">Aprenda SQL</h1>
 
 <!--        <a href="/newpost" class="btn btn-primary" role="button">Novo Post</a>-->
     </nav>
     </div>
+
 </header>
 
 
 <section>
 
 
-    <div class="container" style="width:100%; padding-top:40px; padding-bottom:40px;">
+    <div class="container conteudoLayout" >
+   <section style="margin-bottom:20px;"><th:block th:insert="barraNavegacaoHead"></th:block></section>
 
-        <th:block th:insert="mensagemValidacao"></th:block>
-      <div layout:fragment="content">
+      <div style="margin-top:20px;" layout:fragment="content">
    
 </div>
 
@@ -53,16 +54,7 @@
 </section>
 
     <footer>
-
-        <div class="container" style="width:100%;" >
-
-            <a class="btn btn-primary" id="btnAnterior" style="float: left;"> < Anterior</a>
-
-            <a class="btn btn-primary" id="btnProximo" style="float: right;">Próximo ></a>
-
-        </div>
-
-
+        <th:block th:insert="barraNavegacao"></th:block>
 
     </footer>
 </div>
@@ -82,6 +74,7 @@
 <script type="text/javascript" th:src="@{/scripts/scripts.js}"></script>
 <script type="text/javascript" th:src="@{/scripts/codemirror.js}"></script>
 <script type="text/javascript" th:src="@{/scripts/sql.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/runmode.js}"></script>
 
 
 

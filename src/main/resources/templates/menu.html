@@ -8,9 +8,10 @@
 <body>
 <div id="mySidenav" class="sidenav">
 
- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+ <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Fechar Menu <span class="glyphicon glyphicon-remove">x</span></a>
+ <input class="form-control" type="text" id="mySearch" onkeyup="procurarMenu()" placeholder="procurar.." title="Digite o assunto">
  <ol id="listaMenu">
- <li ><a href="/index">Início</a></li>
+ <li ><a  href="/index">Início</a></li>
  <li > <a href="/select">Select</a></li>
   <li > <a href="/distinct">Distinct</a></li>
   <li ><a href="/where">Where</a></li>

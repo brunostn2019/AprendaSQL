@@ -22,12 +22,7 @@
 <div layout:fragment="content">
     <section>
 
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item" aria-current="page"><a href="/index">Início</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Select</li>
-            </ol>
-        </nav>
+
         <div>
                         <th:block th:insert="mensagemValidacao"></th:block>
 
@@ -42,7 +37,7 @@
                 O comando <b>SELECT</b>, que significa "selecionar", é usado para buscar informações em uma tabela do BD (banco de dados). Geralmente é usado com a cláusula FROM seguido do nome da tabela.
 
             </p>
-            <h3>Sintaxe de um SELECT em SQL</h3>
+            <h5>Sintaxe de um SELECT em SQL</h5>
             <div class="exemplo">
 
                 <code>
@@ -51,35 +46,30 @@
                     FROM nome_da_tabela;
                 </code>
             </div>
-            <p>   No exemplo abaixo a tabela se chama "CLIENTES" e as colunas que serão exibidas sao "idCliente" e "nomeCliente". O ponto e vírgula ';' indica o fim da Query, mas não é obrigatório.</p>
-                <div class="exemplo">
-                <code>
-                    SELECT idCliente, nomeCliente
-                    <br>
-                    FROM CLIENTES;
-                </code>
-                <br>
+            <p class="bgbranco">   No exemplo abaixo a tabela se chama "CLIENTES" e as colunas que serão exibidas sao "idCliente" e "nomeCliente". O ponto e vírgula ';' indica o fim da Query, mas não é obrigatório.</p>
+            <pre class="cm-s-default code exemplo">
+SELECT idCliente, nomeCliente
+FROM CLIENTES;</pre>
 
-            </div>
-            <p>Utilize vírgulas para separar os nomes das colunas ou utilize asterisco '*' no lugar do nome das colunas quando quiser trazer <b>todas</b> as colunas existentes na tabela. <b>Use o comando SELECT em todas as lições para ver o resultado das alterações que faremos.</b> </p>
+            <p class="bgbranco">Utilize vírgulas para separar os nomes das colunas ou utilize asterisco '*' no lugar do nome das colunas quando quiser trazer <b>todas</b> as colunas existentes na tabela. <b>Use o comando SELECT em todas as lições para ver o resultado das alterações que faremos.</b> </p>
             <th:block th:insert="tabela"></th:block>
 
             <div>
-                <p>Experimente alterar os comandos SQL apresentados, e monte sua própria instrução. Utilize nosso editor para executar e veja os resultados</p>
-                <h3>Alguns conceitos importantes</h3>
-                <div class="bgazul">
+                <p class="bgbranco">Experimente alterar os comandos SQL apresentados, e monte sua própria instrução. Utilize nosso editor para executar e veja os resultados</p>
+                <h5>Alguns conceitos importantes</h5>
 
-                <p><b>Tabela</b>: é onde os dados do mesmo 'tipo' são armazenados no formato de linhas e colunas semelhante a uma planilha de Excel.
+
+                <p class="bgbranco"><b>Tabela</b>: é onde os dados do mesmo 'tipo' são armazenados no formato de linhas e colunas semelhante a uma planilha de Excel.
                     Por exemplo, os dados de um cliente serão armazenados em uma tabela com nome de "CLIENTES" ou qualquer nome a sua escolha, mas é altamente
                     recomendado criar nomes intuitivos, que de cara já dizem o tipo de informação que será armazenada ali.
                 </p>
-                <p><b>Banco de Dados</b>: é uma coleção de informações organizadas, estruturadas e armazenadas em um computador. Na maioria dos Bancos de Dados
+                <p class="bgbranco"><b>Banco de Dados</b>: é uma coleção de informações organizadas, estruturadas e armazenadas em um computador. Na maioria dos Bancos de Dados
                     em operação nos dias de hoje, estão guardadas as tabelas que falamos anteriormente.
                     Um Banco de Dados normalmente é gerenciado por um SGBD (Sistema gerenciador de banco de dados). O SGBD fornece diversas ferramentas para facilidar a manipulação dos dados armazenados. </p>
-                <p><b>Instrução</b>: Também chamada de Query SQL, uma instrução é o comando completo, como uma frase. Ex: "SELECT idProd, nomeProd FROM PRODUTOS;"</p>
-                <p><b>Cláusula</b>: São palavras reservadas para montar as Queries (Instruções). Ex: na instrução acima temos a cláusula SELECT e a cláusula FROM. Os nomes das colunas idProd e nomeProd são Termos identificadores, e o nome da tabela PRODUTOS também.</p>
+                <p class="bgbranco"><b>Instrução</b>: Também chamada de Query SQL, uma instrução é o comando completo, como uma frase. Ex: "SELECT idProd, nomeProd FROM PRODUTOS;"</p>
+                <p class="bgbranco"><b>Cláusula</b>: São palavras reservadas para montar as Queries (Instruções). Ex: na instrução acima temos a cláusula SELECT e a cláusula FROM. Os nomes das colunas idProd e nomeProd são Termos identificadores, e o nome da tabela PRODUTOS também.</p>
 
-                </div>
+
             </div>
         </div>
     </section>

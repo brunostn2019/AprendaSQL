@@ -33,7 +33,7 @@
                 Alguns registros terão campos com valores iguais, como o campo cidadeCliente, ou UFCliente, na nossa tabela CLIENTES.
 
             </p>
-            <h3>Sintaxe de um SELECT DISTINCT em SQL</h3>
+            <h5>Sintaxe de um SELECT DISTINCT em SQL</h5>
             <div class="exemplo">
 
                 <code>
@@ -42,36 +42,31 @@
                     FROM nome_da_tabela;
                 </code>
             </div>
-            <p>   No exemplo abaixo a tabela se chama "CLIENTES" e as colunas que serão exibidas são "cidadeCliente" e "UFCliente". Faça o mesmo comando sem usar a palavra DISTINCT para ver a diferença nos resultados.</p>
-            <div class="exemplo">
-                <code>
-                    SELECT DISTINCT cidadeCliente, UFCliente
-                    <br>
-                    FROM CLIENTES;
-                </code>
-                <br>
+            <p class="bgbranco">   No exemplo abaixo a tabela se chama "CLIENTES" e as colunas que serão exibidas são "cidadeCliente" e "UFCliente". Faça o mesmo comando sem usar a palavra DISTINCT para ver a diferença nos resultados.</p>
+            <pre class="cm-s-default code exemplo">
+SELECT DISTINCT cidadeCliente, UFCliente
+FROM CLIENTES;</pre>
 
-            </div>
-            <p>O DISTINCT só funciona quando <b>todas</b> as colunas solicitadas tem valores repetidos, se em 2 registros uma das colunas for diferente, e todas as outras forem iguais, será exibido como 2 registros. Se todas as colunas forem iguais, será exibido como 1 registro. </p>
+            <p class="bgbranco">O DISTINCT só funciona quando <b>todas</b> as colunas solicitadas tem valores repetidos, se em 2 registros uma das colunas for diferente, e todas as outras forem iguais, será exibido como 2 registros. Se todas as colunas forem iguais, será exibido como 1 registro. </p>
             <th:block th:insert="tabela"></th:block>
 
             <div>
-                <p>Quando precisarei usar o distinct? Muitas vezes! Suponha que queremos saber quantas, ou quais, cidades diferentes existem entre os clientes de nossa tabela, faça um select DISTINCT apenas no campo "cidadeCliente".  </p>
-                <h3>Alguns conceitos importantes</h3>
-                <div class="bgazul">
+                <p class="bgbranco">Quando precisarei usar o distinct? Muitas vezes! Suponha que queremos saber quantas, ou quais, cidades diferentes existem entre os clientes de nossa tabela, faça um select DISTINCT apenas no campo "cidadeCliente".  </p>
+                <h5>Alguns conceitos importantes</h5>
 
-                    <p><b>Case Sensitive</b>: é quando precisamos diferenciar letras maiúsculas de minúsculas para que nosso código funcione. As palavras-chave em SQL NÃO é Case Sensitive. Observe que select é igual a SELECT.
+
+                    <p  class="bgbranco"><b>Case Sensitive</b>: é quando precisamos diferenciar letras maiúsculas de minúsculas para que nosso código funcione. As palavras-chave em SQL NÃO é Case Sensitive. Observe que select é igual a SELECT.
                     </p>
-                    <p><b>SQL Data Types</b>: Data Types significa "tipos de dados". Existem muitos tipos de dados para serem usados em nossos CAMPOS das tabelas. Quando uma tabela é criada deve-se dizer qual o nome da coluna
+                    <p  class="bgbranco"><b>SQL Data Types</b>: Data Types significa "tipos de dados". Existem muitos tipos de dados para serem usados em nossos CAMPOS das tabelas. Quando uma tabela é criada deve-se dizer qual o nome da coluna
                         e qual o tipo de dado dessa coluna, além de outras informações que veremos aos poucos. Os tipo de dados podem ser variações do tipo STRING (baseados em texto), NUMÉRICOS (inteiros, decimais, etc), DATE and TIME (Baseados em data e hora / tempo) entre outros.
                          </p>
-                    <p><b>Valor NULL</b>: Você deve ter percebido que o SELECT exibe a palavra NULL em algum momento. Quando não há valor em uma coluna específica de um registro, é exibido como "NULL" que significa "nulo". Ao criar um campo podemos defini-lo como NOT NULL, ou seja, o campo torna-se obrigatório pois a tabela não
+                    <p  class="bgbranco"><b>Valor NULL</b>: Você deve ter percebido que o SELECT exibe a palavra NULL em algum momento. Quando não há valor em uma coluna específica de um registro, é exibido como "NULL" que significa "nulo". Ao criar um campo podemos defini-lo como NOT NULL, ou seja, o campo torna-se obrigatório pois a tabela não
                     irá aceitar que o mesmo seja vazio em algum registro.</p>
-                    <p><b>Comentários</b>: Ao escrever códigos em SQL podemos criar comentários entre as linhas de código, essa parte não é executada e não causa erros no código. Isso é muito utilizado quando queremos explicar o que pretendemos fazer em determinada parte do código
+                    <p  class="bgbranco"><b>Comentários</b>: Ao escrever códigos em SQL podemos criar comentários entre as linhas de código, essa parte não é executada e não causa erros no código. Isso é muito utilizado quando queremos explicar o que pretendemos fazer em determinada parte do código
                     e facilita para que outras pessoas possam ler o código e entender mais claramente no futuro, se necessário.
                         Para criar um comentário de uma linha, coloca-se '-- ' (sem as aspas) antes da linha. Para um comentário de várias linhas, o texto deve estar entre os caracteres '/*' e '*/' sem as aspas. Exemplo: <b>/* texto do comentario em várias linhas */</b>. O editor do APRENDA SQL não suporta comentários no momento.</p>
 
-                </div>
+
             </div>
         </div>
 

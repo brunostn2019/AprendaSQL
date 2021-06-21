@@ -12,7 +12,7 @@
 
 function openNav() {
   document.getElementById("mySidenav").style.width = "200px";
-  document.getElementById("main").style.marginLeft = "200px";
+  //document.getElementById("main").style.marginLeft = "200px";
   document.body.style.backgroundColor = "white";
 }
 
@@ -308,21 +308,43 @@ function executarSELECTSQL(stringSQL){
     var pegaIndex = myArray.findIndex(x => x.toUpperCase().trim() === paginaAtual.toUpperCase().replace('/',''));
        $('#btnAnterior').hide();
          $('#btnProximo').hide();
+          $('#btnAnteriorH').hide();
+                  $('#btnProximoH').hide();
+
+$('#listaMenu > li').find('a').removeClass("active");//this will remove the active class from
+                                                          //previously active menu item
+
+           $('#listaMenu > li').eq(pegaIndex).find('a').addClass('active');
+
 if(pegaIndex!=-1){
 $('#btnProximo').show();
   $('#btnAnterior').show();
+  $('#btnProximoH').show();
+    $('#btnAnteriorH').show();
 
-if(pegaIndex==0)
+if(pegaIndex==0){
                 $('#btnAnterior').hide();
-                 else
+                   $('#btnAnteriorH').hide();
+                   }
+                 else{
                  $('#btnAnterior').attr("href", '/'+myArray[pegaIndex-1].toLowerCase().trim());
-
-                 if(pegaIndex==myArray.length)
+                   $('#btnAnteriorH').attr("href", '/'+myArray[pegaIndex-1].toLowerCase().trim());
+}
+                 if(pegaIndex==(myArray.length-1)){
      $('#btnProximo').hide();
-   else
+       $('#btnProximoH').hide();
+     }
+   else{
+     $('#btnProximoH').attr("href", '/'+myArray[pegaIndex+1].toLowerCase().trim());
                  $('#btnProximo').attr("href", '/'+myArray[pegaIndex+1].toLowerCase().trim());
+                 }
                 }
-                });
+                }
+
+
+
+
+                );
 
                 window.onload = function() {
                   var mime = 'text/x-mysql';
@@ -330,20 +352,56 @@ if(pegaIndex==0)
                   if (window.location.href.indexOf('mime=') > -1) {
                     mime = window.location.href.substr(window.location.href.indexOf('mime=') + 5);
                   }
-                  window.editor = CodeMirror.fromTextArea(document.getElementById('txtStringSQL'), {
-                    mode: mime,
-                    indentWithTabs: true,
-                    smartIndent: true,
-                    lineNumbers: true,
-                    matchBrackets : true,
-                    autofocus: true
+                  var txtStr = document.getElementById('txtStringSQL');
+                  if(txtStr!= null)
+                  {
+                          window.editor = CodeMirror.fromTextArea(document.getElementById('txtStringSQL'), {
+                            mode: mime,
+                            indentWithTabs: true,
+                            smartIndent: true,
+                            lineNumbers: true,
+                            matchBrackets : true,
+                            autofocus: false
 
 
-                  });
+                          });
+                  }
+
+$('.code').each(function(){
+  CodeMirror.runMode($(this).html(), "text/x-mysql",
+                                                                    $(this)[0]);
+});
+
                 };
 
                 function abrirEditor(stringSQL){
                 window.editor.setValue(stringSQL);
                 }
+
+
+
+
+function doHighlight() {
+  CodeMirror.runMode(document.getElementById("code").value, "application/xml",
+                     document.getElementById("output"));
+}
+
+function procurarMenu() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("listaMenu");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+
 
 
