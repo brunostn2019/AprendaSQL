@@ -1,0 +1,90 @@
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/estilos.css}" href="../../css/estilos.css" />
+    <link rel="shortcut icon" th:href="@{/icons/favicon.ico}" href="../../icons/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" th:href="@{/css/codemirror.css}" href="../../css/codemirror.css" />
+
+
+
+
+
+
+</head>
+<body>
+<div id="main">
+    <th:block th:insert="menu"></th:block>
+
+<header>
+    <div style="position: fixed; top: 0px; width: 100%;">
+    <nav class="navbar navbar-light bg-light" >
+     <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+        <h1 class="navbar-brand mb-0 h1" style="font-weight:bold;">Aprenda SQL</h1>
+
+<!--        <a href="/newpost" class="btn btn-primary" role="button">Novo Post</a>-->
+    </nav>
+    </div>
+</header>
+
+
+<section>
+
+
+    <div class="container" style="width:100%; padding-top:40px; padding-bottom:40px;">
+
+        <th:block th:insert="mensagemValidacao"></th:block>
+      <div layout:fragment="content">
+   
+</div>
+
+
+            </div>
+
+</section>
+
+    <footer>
+
+        <div class="container" style="width:100%;" >
+
+            <a class="btn btn-primary" id="btnAnterior" style="float: left;"> < Anterior</a>
+
+            <a class="btn btn-primary" id="btnProximo" style="float: right;">Próximo ></a>
+
+        </div>
+
+
+
+    </footer>
+</div>
+<th:block layout:fragment="script"></th:block>
+
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/scripts/scripts.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/codemirror.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/sql.js}"></script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,150 @@
+<!DOCTYPE html >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Aprenda SQL</title>
+</head>
+<body>
+
+
+
+<div layout:fragment="content">
+    <section>
+
+        <div class="conteudo">
+            <h2>AND, OR e NOT</h2>
+            <p class="bgazul">
+                Os operadores <b>AND, OR e NOT</b>, que significam "E, OU, NÃO", são usados com a cláusula WHERE. O "AND" trará os resultados onde todas as condições
+               separadas pelo "AND" forem verdadeiras. O "OR" trará os resultados onde pelo menos uma das condições separadas pelo "OR" for verdadeira. E o "NOT" serve para negar as condições, trazendo o resultado "contrário" a condição solicitada.
+
+
+            </p>
+            <h3>Sintaxe de um WHERE AND</h3>
+            <div class="exemplo">
+
+                <code>
+                    SELECT nome_da_coluna, nome_da_coluna2, ...
+                    <br>
+                    FROM nome_da_tabela
+                    <br>
+                    WHERE condição1 AND condição2 AND ... ;
+                </code>
+            </div>
+            <h3>Sintaxe de um WHERE OR</h3>
+            <div class="exemplo">
+
+                <code>
+                    SELECT nome_da_coluna, nome_da_coluna2, ...
+                    <br>
+                    FROM nome_da_tabela
+                    <br>
+                    WHERE condição1 OR condição2 OR ... ;
+                </code>
+            </div>
+            <h3>Sintaxe de um WHERE NOT</h3>
+            <div class="exemplo">
+
+                <code>
+                    SELECT nome_da_coluna, nome_da_coluna2, ...
+                    <br>
+                    FROM nome_da_tabela
+                    <br>
+                    WHERE NOT condição1;
+                </code>
+            </div>
+            <p>   No exemplo abaixo temos 2 condições separadas pelo AND, a cidade tem que ser "Lagoa Santa" E o nome tem que ser "Bruno Ferreira". Só serão exibidos os registros que atendem as DUAS condições.</p>
+            <div class="exemplo">
+                <code>
+                    SELECT  *  FROM CLIENTES
+                    <br>
+                   WHERE cidadeCliente = 'Lagoa Santa' AND nomeCliente = 'Bruno Ferreira';
+                </code>
+                <br>
+
+            </div>
+            <p>   Agora temos 2 condições separadas pelo OR, a cidade tem que ser "Lagoa Santa" OU o nome tem que ser "Bruno Ferreira". Serão exibidos os registros que atendem pelo menos UMA das condições OU as DUAS.</p>
+            <div class="exemplo">
+                <code>
+                    SELECT  *  FROM CLIENTES
+                    <br>
+                    WHERE cidadeCliente = 'Lagoa Santa' OR nomeCliente = 'Bruno Ferreira';
+                </code>
+                <br>
+
+            </div>
+            <p>   No próximo temos 1 condição com o NOT, a cidade tem que ser DIFERENTE de "Lagoa Santa" pois dissemos que o NOT faz o contrário a condição escrita.
+                Serão exibidos os registros que tem a cidade diferente de "Lagoa Santa".</p>
+            <div class="exemplo">
+                <code>
+                    SELECT  *  FROM CLIENTES
+                    <br>
+                    WHERE NOT cidadeCliente = 'Lagoa Santa';
+                </code>
+                <br>
+
+            </div>
+            <p>   E finalmente vamos misturar os operadores em uma só Query. Note o uso de '()' (parenteses) e vamos entender exatamente o que foi solicitado: Queremos
+            os clientes de MG, mas só das cidades Santa Luzia OU Ribeirão das Neves.</p>
+            <div class="exemplo">
+                <code>
+                    SELECT  *  FROM CLIENTES
+                    <br>
+                    WHERE  UFCliente = 'MG' AND (cidadeCliente = 'Santa Luzia' OR cidadeCliente ='Ribeirão das Neves');
+                </code>
+                <br>
+
+            </div>
+            <p>Também podemos misturar o NOT, com AND e OR. Tudo depende do que queremos buscar na tabela!</p>
+            <th:block th:insert="tabela"></th:block>
+
+            <div>
+                <p>Quando precisarei usar o distinct? Muitas vezes! Suponha que queremos saber quantas, ou quais, cidades diferentes existem entre os clientes de nossa tabela, faça um select DISTINCT apenas no campo "cidadeCliente".  </p>
+                <h3>Alguns conceitos importantes</h3>
+                <div class="bgazul">
+
+                    <p><b>Case Sensitive</b>: é quando precisamos diferenciar letras maiúsculas de minúsculas para que nosso código funcione. As palavras-chave em SQL NÃO é Case Sensitive. Observe que select é igual a SELECT.
+                    </p>
+                    <p><b>SQL Data Types</b>: Data Types significa "tipos de dados". Existem muitos tipos de dados para serem usados em nossos CAMPOS das tabelas. Quando uma tabela é criada deve-se dizer qual o nome da coluna
+                        e qual o tipo de dado dessa coluna, além de outras informações que veremos aos poucos. Os tipo de dados podem ser variações do tipo STRING (baseados em texto), NUMÉRICOS (inteiros, decimais, etc), DATE and TIME (Baseados em data e hora / tempo) entre outros.
+                    </p>
+                    <p><b>Valor NULL</b>: Você deve ter percebido que o SELECT exibe a palavra NULL em algum momento. Quando não há valor em uma coluna específica de um registro, é exibido como "NULL" que significa "nulo". Ao criar um campo podemos defini-lo como NOT NULL, ou seja, o campo torna-se obrigatório pois a tabela não
+                        irá aceitar que o mesmo seja vazio em algum registro.</p>
+                    <p><b>Comentários</b>: Ao escrever códigos em SQL podemos criar comentários entre as linhas de código, essa parte não é executada e não causa erros no código. Isso é muito utilizado quando queremos explicar o que pretendemos fazer em determinada parte do código
+                        e facilita para que outras pessoas possam ler o código e entender mais claramente no futuro, se necessário.
+                        Para criar um comentário de uma linha, coloca-se '-- ' (sem as aspas) antes da linha. Para um comentário de várias linhas, o texto deve estar entre os caracteres '/*' e '*/' sem as aspas. Exemplo: <b>/* texto do comentario em várias linhas */</b>. O editor do APRENDA SQL não suporta comentários no momento.</p>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

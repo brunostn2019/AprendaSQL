@@ -1,0 +1,97 @@
+<!DOCTYPE html >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Aprenda SQL</title>
+</head>
+<body>
+
+
+
+<div layout:fragment="content">
+    <section>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item" aria-current="page"><a href="/index">Início</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Delete</li>
+            </ol>
+        </nav>
+        <div class="conteudo">
+            <h2>O que é um SELECT?</h2>
+            <p class="bgazul">
+                O comando <b>SELECT</b>, que significa "selecionar", é usado para buscar informações em uma tabela do BD (banco de dados). Geralmente é usado com a cláusula FROM seguido do nome da tabela.
+
+            </p>
+            <h3>Sintaxe de um SELECT em SQL</h3>
+            <div class="exemplo">
+
+                <code>
+                    SELECT nome_da_coluna, nome_da_coluna2, ...
+                    <br>
+                    FROM nome_da_tabela;
+                </code>
+            </div>
+            <p>   No exemplo abaixo a tabela se chama "CLIENTES" e as colunas que serão exibidas sao "idCliente" e "nomeCliente". O ponto e vírgula ';' indica o fim da Query, mas não é obrigatório.</p>
+            <div class="exemplo">
+                <code>
+                    SELECT idCliente, nomeCliente
+                    <br>
+                    FROM CLIENTES;
+                </code>
+                <br>
+
+            </div>
+            <p>Utilize vírgulas para separar os nomes das colunas ou utilize asterisco '*' no lugar do nome das colunas quando quiser trazer <b>todas</b> as colunas existentes na tabela </p>
+            <th:block th:insert="tabela"></th:block>
+
+            <div>
+                <p>Experimente alterar os comandos SQL apresentados, e monte sua própria instrução. Utilize nosso editor para executar e veja os resultados</p>
+                <h3>Alguns conceitos importantes</h3>
+                <div class="bgazul">
+
+                    <p><b>Tabela</b>: é onde os dados do mesmo 'tipo' são armazenados no formato de linhas e colunas semelhante a uma planilha de Excel.
+                        Por exemplo, os dados de um cliente serão armazenados em uma tabela com nome de "CLIENTES" ou qualquer nome a sua escolha, mas é altamente
+                        recomendado criar nomes intuitivos, que de cara já dizem o tipo de informação que será armazenada ali.
+                    </p>
+                    <p><b>Banco de Dados</b>: é uma coleção de informações organizadas, estruturadas e armazenadas em um computador. Na maioria dos Bancos de Dados
+                        em operação nos dias de hoje, estão guardadas as tabelas que falamos anteriormente.
+                        Um Banco de Dados normalmente é gerenciado por um SGBD (Sistema gerenciador de banco de dados). O SGBD fornece diversas ferramentas para facilidar a manipulação dos dados armazenados. </p>
+                    <p><b>Instrução</b>: Também chamada de Query SQL, uma instrução é o comando completo, como uma frase. Ex: "SELECT idProd, nomeProd FROM PRODUTOS;"</p>
+                    <p><b>Cláusula</b>: São palavras reservadas para montar as Queries (Instruções). Ex: na instrução acima temos a cláusula SELECT e a cláusula FROM. Os nomes das colunas idProd e nomeProd são Termos identificadores, e o nome da tabela PRODUTOS também.</p>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

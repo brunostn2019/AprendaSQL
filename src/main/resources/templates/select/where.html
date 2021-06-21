@@ -1,0 +1,108 @@
+<!DOCTYPE html >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Aprenda SQL</title>
+</head>
+<body>
+
+
+
+<div layout:fragment="content">
+    <section>
+
+        <div class="conteudo">
+            <h2>O que é o WHERE?</h2>
+            <p class="bgazul">
+                A cláusula <b>WHERE</b>, que significa "onde", é usado para criar filtros limitando a quantidade de registros que serão afetados por uma instrução SQL.
+                Quando utilizado, o WHERE cria uma condição necessária para que a ação desejada aconteça.
+
+            </p>
+            <h3>Sintaxe de um WHERE em SQL</h3>
+            <div class="exemplo">
+
+                <code>
+                    SELECT nome_da_coluna, nome_da_coluna2, ...
+                    <br>
+                    FROM nome_da_tabela
+                    <br>
+                    WHERE condição_desejada;
+                </code>
+            </div>
+            <p>   No primeiro exemplo abaixo queremos trazer apenas os clientes que tem o id = 1. Então é como se dissessemos "selecione os clientes ONDE o id é igual a 1". No segundo exemplo
+            não deve retornar nada pois não existe um cliente com id = 100. No terceiro exemplo, deve retornar todos os clientes que moram em MG.</p>
+            <div class="exemplo">
+                <code>
+                    SELECT *  FROM CLIENTES  WHERE idCliente = 1;
+                    <br>
+                    SELECT *  FROM CLIENTES  WHERE idCliente = 100;
+                    <br>
+                    SELECT *  FROM CLIENTES  WHERE UFCliente = 'MG';
+                </code>
+                <br>
+
+            </div>
+            <p>As condições podem usar outros operadores de comparação, igual (=), menor que (<),maior que (>), entre outros. </p>
+            <th:block th:insert="tabela"></th:block>
+
+            <div>
+                <p><b>Tabela de operadores de comparação</b></p>
+                <table id="tabelaOperaCompara" class="table table-bordered table-striped table-sm">
+                    <thead><tr><th>Operador</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+                    <tbody>
+                    <tr><td>=</td><td>igual a</td><td>idCliente = 1</td></tr>
+                    <tr><td><</td><td>menor que</td><td>valorProduto < 100.99</td></tr>
+                    <tr><td>></td><td>maior que</td><td>dataNascimento > '1987-06-22' </td></tr>
+                    <tr><td><=</td><td>menor ou igual a</td><td>idCliente <= 10</td></tr>
+                    <tr><td>>=</td><td>maior ou igual a</td><td>idadeAluno >= 18</td></tr>
+                    <tr><td> &lt;&gt; </td><td>diferente de</td><td>cidadeCliente &lt;&gt; 'Lagoa Santa'</td></tr>
+
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+
+                <h3>Alguns conceitos importantes</h3>
+                <div class="bgazul">
+
+                    <p><b>Aspas</b>: Indica o inicio e o fim de uma STRING em SQL. Você pode usar "aspas duplas" ou 'aspas simples' em suas Queries, mas na maioria dos BDs usamos aspas simples. Quando comparamos números, não utilizamos aspas, conforme exemplos
+                        da Tabela de Operadores.
+                    </p>
+                    <p><b>Campos do tipo DATA (DATE)</b>: As datas são representadas no formato 'aaaa-MM-dd' ou 'yyyy-MM-dd' sendo 'a' de ano ('y' de year), 'M' de mes (month), 'd' de dia (day). Também usa-se aspas nos valores do tipo DATA. </p>
+                    <p><b>Campos do tipo DATA e HORA (DATETIME)</b>: Semelhante ao tipo DATE, mas usa-se 'aaaa-MM-dd HH:MI:SS' onde 'H' é a hora, 'MI' são minutos e 'SS' os segundos.</p>
+                    <p><b>Outros tipos de DATA</b>: Também existem tipos diferentes relacionados a data, e podem variar de acordo com o BD utilizado, por exemplo, em MySQL existem os tipos TIMESTAMP e o YEAR. Use o GOOGLE sempre que precisar para saber exatamente qual formato utilizar sem seu BD.</p>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
