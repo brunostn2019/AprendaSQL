@@ -138,6 +138,7 @@ if(stringSQL){
 var primeiraPalavra = stringSQL.replace(/ .*/,' ');
 
 limparCampos();
+scrollToHash('divEditor');
 
 if(primeiraPalavra.toUpperCase().includes("SELECT") )
     executarSELECTSQL(stringSQL);
@@ -306,39 +307,56 @@ function executarSELECTSQL(stringSQL){
                //   var listamenu = $('#listaMenu li').map(function(){return $.text([this])});
                  //var listamenu = $('#listaMenu')[0];
     var pegaIndex = myArray.findIndex(x => x.toUpperCase().trim() === paginaAtual.toUpperCase().replace('/',''));
-       $('#btnAnterior').hide();
-         $('#btnProximo').hide();
-          $('#btnAnteriorH').hide();
-                  $('#btnProximoH').hide();
+                   $('#btnAnterior').hide();
+                   $('#btnProximo').hide();
+                   $('#btnAnteriorH').hide();
+                   $('#btnProximoH').hide();
+                   $('#listaMenu > li').find('a').removeClass("active");//this will remove the active class from
+                                                                              //previously active menu item
 
-$('#listaMenu > li').find('a').removeClass("active");//this will remove the active class from
-                                                          //previously active menu item
-
-           $('#listaMenu > li').eq(pegaIndex).find('a').addClass('active');
 
 if(pegaIndex!=-1){
 $('#btnProximo').show();
   $('#btnAnterior').show();
   $('#btnProximoH').show();
     $('#btnAnteriorH').show();
+     $('#listaMenu > li').eq(pegaIndex).find('a').addClass('active');
 
 if(pegaIndex==0){
-                $('#btnAnterior').hide();
-                   $('#btnAnteriorH').hide();
-                   }
-                 else{
-                 $('#btnAnterior').attr("href", '/'+myArray[pegaIndex-1].toLowerCase().trim());
-                   $('#btnAnteriorH').attr("href", '/'+myArray[pegaIndex-1].toLowerCase().trim());
-}
-                 if(pegaIndex==(myArray.length-1)){
-     $('#btnProximo').hide();
-       $('#btnProximoH').hide();
-     }
-   else{
-     $('#btnProximoH').attr("href", '/'+myArray[pegaIndex+1].toLowerCase().trim());
-                 $('#btnProximo').attr("href", '/'+myArray[pegaIndex+1].toLowerCase().trim());
-                 }
+                        $('#btnAnterior').hide();
+                        $('#btnAnteriorH').hide();
                 }
+                 else
+                 {
+                             $('#btnAnterior').attr("href", '/'+myArray[pegaIndex-1].toLowerCase().trim());
+                             $('#btnAnteriorH').attr("href", '/'+myArray[pegaIndex-1].toLowerCase().trim());
+                 }
+                             if(pegaIndex==(myArray.length-1))
+                             {
+                                             $('#btnProximo').hide();
+                                             $('#btnProximoH').hide();
+                             }
+                               else
+                               {
+                                             $('#btnProximoH').attr("href", '/'+myArray[pegaIndex+1].toLowerCase().trim());
+                                             $('#btnProximo').attr("href", '/'+myArray[pegaIndex+1].toLowerCase().trim());
+                               }
+                }
+                else
+                {
+
+                  $('#listaMenu > li').eq(0).find('a').addClass('active');
+                  $('#btnAnterior').hide();
+                  $('#btnAnteriorH').hide();
+
+                  $('#btnProximoH').attr("href", '/'+myArray[1].toLowerCase().trim());
+                  $('#btnProximo').attr("href", '/'+myArray[1].toLowerCase().trim());
+
+                  $('#btnProximoH').show();
+                  $('#btnProximo').show();
+                }
+
+
                 }
 
 
@@ -400,6 +418,11 @@ function procurarMenu() {
       li[i].style.display = "none";
     }
   }
+}
+
+function scrollToHash(hash){
+location.hash = "#";
+ location.hash = "#" + hash;
 }
 
 

@@ -29,32 +29,45 @@
         <div class="conteudo">
             <h2>Como usar IS NULL e IS NOT NULL?</h2>
             <p class="bgazul">
-                O comando <b>IS NULL</b>, que significa "selecionar", é usado para buscar informações em uma tabela do BD (banco de dados). Geralmente é usado com a cláusula FROM seguido do nome da tabela.
+                O comando <b>IS NULL</b>, que significa "é nulo", é usado para validar se um campo da tabela tem valor NULL. O comando <b>IS NOT NULL</b> faz o oposto.
 
             </p>
-            <h5>Sintaxe de um SELECT em SQL</h5>
+            <h5>Sintaxe IS NULL</h5>
             <div class="exemplo">
 
                 <code>
                     SELECT nome_da_coluna, nome_da_coluna2, ...
                     <br>
-                    FROM nome_da_tabela;
+                    FROM nome_da_tabela WHERE nome_da_coluna IS NULL;
                 </code>
             </div>
-            <p class="bgbranco">   No exemplo abaixo a tabela se chama "CLIENTES" e as colunas que serão exibidas sao "idCliente" e "nomeCliente". O ponto e vírgula ';' indica o fim da Query, mas não é obrigatório.</p>
+            <h5>Sintaxe IS NULL</h5>
+            <div class="exemplo">
+
+                <code>
+                    SELECT nome_da_coluna, nome_da_coluna2, ...
+                    <br>
+                    FROM nome_da_tabela WHERE nome_da_coluna IS NOT NULL;
+                </code>
+            </div>
+            <p class="bgbranco">   No exemplo abaixo vamos trazer os clientes onde a UF tem o valor NULL, e em seguida, onde a UF não é NULL.</p>
             <pre class="cm-s-default code exemplo">
-SELECT * FROM CLIENTES ORDER BY nomeCliente, UFCliente;
-SELECT * FROM CLIENTES ORDER BY UFCliente, nomeCliente;
-SELECT * FROM CLIENTES ORDER BY UFCliente ASC, nomeCliente DESC;</pre>
+SELECT * FROM CLIENTES
+WHERE UFCliente IS NULL;
+
+SELECT * FROM CLIENTES
+WHERE UFCliente IS NOT NULL;</pre>
 
 
-            <p class="bgbranco">Utilize vírgulas para separar os nomes das colunas ou utilize asterisco '*' no lugar do nome das colunas quando quiser trazer <b>todas</b> as colunas existentes na tabela </p>
+            <p class="bgbranco">Note que não podemos usar os operadores de comparação (=, <, >, etc...) para testar valores nulos. Por exemplo
+                se escrevermos "WHERE nomeCliente = NULL" não funcionará.</p>
             <th:block th:insert="tabela"></th:block>
 
             <div>
-                <p>Experimente alterar os comandos SQL apresentados, e monte sua própria instrução. Utilize nosso editor para executar e veja os resultados</p>
+                <p class="bgbranco">O operador IS NULL é equivalente a "igual a NULL" e o IS NOT NULL é equivalente a "diferente de NULL". </p>
                 <h5>Alguns conceitos importantes</h5>
-
+                <p  class="bgbranco"><b>Valor NULL</b>: Você deve ter percebido que o SELECT exibe a palavra NULL em algum momento. Quando não há valor em uma coluna específica de um registro, é exibido como "NULL" que significa "nulo". Ao criar um campo podemos defini-lo como NOT NULL, ou seja, o campo torna-se obrigatório pois a tabela não
+                    irá aceitar que o mesmo seja vazio em algum registro.</p>
             </div>
         </div>
 

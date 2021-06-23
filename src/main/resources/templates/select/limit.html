@@ -32,35 +32,47 @@
         </div>
 
         <div class="conteudo">
-            <h2>O que é um SELECT?</h2>
+            <h2>O que é a Cláusula LIMIT?</h2>
             <p class="bgazul">
-                O comando <b>SELECT</b>, que significa "selecionar", é usado para buscar informações em uma tabela do BD (banco de dados). Geralmente é usado com a cláusula FROM seguido do nome da tabela.
+                A cláusula <b>LIMIT</b> em MySQL é usada para limitar a quantidade de registros que serão trazidos pela Query, em outros BDs, a sintaxe para esse tipo de query pode mudar totalmente, por exemplo no SQL SERVER seria equivalente ao "SELECT TOP".
 
             </p>
-            <h5>Sintaxe de um SELECT em SQL</h5>
+            <h5>Sintaxe da LIMIT</h5>
             <div class="exemplo">
 
                 <code>
                     SELECT nome_da_coluna, nome_da_coluna2, ...
                     <br>
-                    FROM nome_da_tabela;
+                    FROM nome_da_tabela
+                    <br>
+                    LIMIT numero_de_linhas;
                 </code>
             </div>
-            <p class="bgbranco">   No exemplo abaixo a tabela se chama "CLIENTES" e as colunas que serão exibidas sao "idCliente" e "nomeCliente". O ponto e vírgula ';' indica o fim da Query, mas não é obrigatório.</p>
+            <p class="bgbranco">   No exemplo abaixo queremos que o resultado mostre apenas uma linha, <b>mesmo que existam mais linhas no resultado</b>.</p>
             <pre class="cm-s-default code exemplo">
-SELECT idCliente, nomeCliente
-FROM CLIENTES;</pre>
+SELECT *
+FROM CLIENTES
+LIMIT 1;</pre>
 
-            <p class="bgbranco">Utilize vírgulas para separar os nomes das colunas ou utilize asterisco '*' no lugar do nome das colunas quando quiser trazer <b>todas</b> as colunas existentes na tabela. <b>Use o comando SELECT em todas as lições para ver o resultado das alterações que faremos.</b> </p>
+            <p class="bgbranco">   Agora queremos saber quem é o último registro adicionado.
+                Podemos só ordenar por ID decrescente e o primeiro resultado é o que queremos certo? Mas vamos supor que existem milhares de registros na tabela PRODUTOS. Dessa forma será mais rápido usar o LIMIT 1.</p>
+            <pre class="cm-s-default code exemplo">
+SELECT *
+FROM PRODUTOS ORDER BY idProduto DESC
+LIMIT 1;</pre>
+
+
+            <p class="bgbranco">Podemos colocar qualquer número de linhas após a cláusula LIMIT. Para 10 registros temos que usar 'LIMIT 10'.</b> </p>
+
             <th:block th:insert="tabela"></th:block>
 
             <div>
-                <p class="bgbranco">Experimente alterar os comandos SQL apresentados, e monte sua própria instrução. Utilize nosso editor para executar e veja os resultados</p>
+                <p class="bgbranco">Estamos trabalhando em tabelas com poucos registros pois são apenas para nossos estudos. Em um ambiente real podemos ter quantidades enormes de dados. Por isso devemos criar Queries pensando no melhor desempenho possível. </p>
                 <h5>Alguns conceitos importantes</h5>
 
 
-           <p class="bgbranco"><b>Instrução</b>: Também chamada de Query SQL, uma instrução é o comando completo, como uma frase. Ex: "SELECT idProd, nomeProd FROM PRODUTOS;"</p>
-                <p class="bgbranco"><b>Cláusula</b>: São palavras reservadas para montar as Queries (Instruções). Ex: na instrução acima temos a cláusula SELECT e a cláusula FROM. Os nomes das colunas idProd e nomeProd são Termos identificadores, e o nome da tabela PRODUTOS também.</p>
+           <p class="bgbranco"><b>DBA</b>: É sigla para "Database administrator" ou Administrador de Banco de Dados. Este é o profissional que vai cuidar do BD da empresa, tendo grande conhecimento na área, as alterações devem ser analisadas por ele, evitando problemas com segurança e desempenho.</p>
+
 
 
             </div>

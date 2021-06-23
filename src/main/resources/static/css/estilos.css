@@ -65,6 +65,9 @@ position: fixed; z-index: 10; top: 0px; width: 100%;
 width:100%; padding-top:60px; padding-bottom:60px;
 }
 
+#tituloEditor {
+padding: 50px 0px 30px 0px;
+}
 
 
 @media screen and (max-width: 400px) {
@@ -76,6 +79,9 @@ width:100%; padding-top:60px; padding-bottom:60px;
      .conteudoLayout{
      width:100%; padding-top:20px; padding-bottom:20px;
      }
+     #tituloEditor {
+     padding: 0px 0px 0px 0px;
+     }
 }
 
 @media screen and (max-height: 400px) {
@@ -86,6 +92,9 @@ width:100%; padding-top:60px; padding-bottom:60px;
    position: relative; z-index: 10; top: 0px; width: 100%;}
    .conteudoLayout{
    width:100%; padding-top:20px; padding-bottom:20px;
+   }
+   #tituloEditor {
+   padding: 0px 0px 0px 0px;
    }
 }
 
@@ -171,7 +180,8 @@ ol li{
 }
 
 .active {
-background-color: white;
+
  font-weight: bold;
 
 }
+
