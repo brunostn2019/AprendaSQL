@@ -78,10 +78,15 @@ public class SqlptController {
     public String getSelect() {
         return "select/select";
     }
-    //retorna a pagina selectTOP
+    //retorna a pagina limit
     @GetMapping("/limit")
     public String getLimit() {
         return "select/limit";
+    }
+    //retorna a pagina min max
+    @GetMapping("/minmax")
+    public String getMinMax() {
+        return "select/minmax";
     }
     //retorna a pagina distinct
     @GetMapping("/distinct")

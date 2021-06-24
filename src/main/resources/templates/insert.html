@@ -52,20 +52,27 @@
                     VALUES ('valor1', 'valor2', ...);
                 </code>
             </div>
-            <p class="bgbranco">   No exemplo abaixo a tabela se chama "CLIENTES" e as colunas que serão inseridas sao "nomeCliente" e "cidadeCliente".
-                Antes de executar o INSERT, faça um SELECT na tabela CLIENTES conforme você aprendeu na lição anterior e verifique os campos que ela possui.</p>
+            <p class="bgbranco">   No exemplo abaixo a tabela se chama CLIENTES e as colunas que serão inseridas sao "nomeCliente" e "cidadeCliente".
+                Antes de executar o INSERT, faça um SELECT na tabela CLIENTES e verifique os campos que ela possui.</p>
             <pre class="cm-s-default code exemplo">
 INSERT INTO CLIENTES  (nomeCliente, cidadeCliente)
 VALUES ('Maria José', 'Brasília');</pre>
 
             <p class="bgbranco">Após executar o INSERT, faça outra vez o SELECT e perceba que o campo idCliente será preenchido, mesmo não incluindo este campo na Query.
-                Isso ocorre pois o campo idCliente é do tipo INT <b>AUTOINCREMENT</b> ou seja, é um número inteiro que será preenchido automaticamente, adicionando +1 ao último número registrado.
-                O primeiro registro recebe o número 1, o segundo recebe o número 2, e assim por diante. </p>
+                Isso ocorre pois o campo idCliente é do tipo INT <b>AUTO_INCREMENT</b> ou seja, é um número inteiro que será preenchido automaticamente, adicionando +1 ao último número registrado.
+                O primeiro registro recebe o número 1, o segundo recebe o número 2, e assim por diante. Caso seja passado um ID, conforme exemplo abaixo, também irá funcionar, sem seguir a sequência.</p>
+            <pre class="cm-s-default code exemplo">
+INSERT INTO CLIENTES  (idCliente, nomeCliente, cidadeCliente)
+VALUES (20,'Maria José', 'Brasília');</pre>
             <th:block th:insert="tabela"></th:block>
 
             <div>
-                <p class="bgbranco">Experimente alterar os comandos SQL apresentados, e monte sua própria instrução. Utilize nosso editor para executar e veja os resultados</p>
+                <p class="bgbranco">Foram mostradas 2 sintaxes diferentes para o INSERT. A primeira com os nomes dos campos e valores. A segunda sem os nomes dos campos. Isso é possível se você inserir os valores na ordem certa em <b>todos</b> os campos
+                 da tabela, exceto o campo configurado com AUTO_INCREMENT (geralmente é o id), pois ele será preenchido automaticamente em ordem crescente. </p>
                 <h3>Alguns conceitos importantes</h3>
+                <p  class="bgbranco"><b>AUTO_INCREMENT</b>: É a sintaxe do MySQL para que uma coluna gere um número automatico, incrementando de 1 em 1, mas para outros BDs a sintaxe e a maneira de fazer isso pode variar, como no SQL SERVER, usa-se o IDENTITY, já no ORACLE, não existe uma palavra-chave para essa configuração. </p>
+                <p  class="bgbranco"><b>PRIMARY KEY</b>: Se quisermos escolher o valor do ID na hora de fazer o INSERT, dará certo. Mas se o campo ID for uma PRIMARY KEY (chave primária), este campo não poderá ser repetido. Existem várias formas de não permitir valores repetidos em uma coluna
+                de uma tabela. Isso varia de acordo com cada BD. Bem como esse não é o único objetivo de criar uma PRIMARY KEY. A chave primária é o que identifica um único registro em uma tabela e ela pode ser composta por mais de uma coluna! </p>
 
             </div>
         </div>

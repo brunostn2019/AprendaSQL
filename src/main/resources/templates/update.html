@@ -21,56 +21,47 @@
 <body>
 
 
-
 <div layout:fragment="content">
     <section>
+
+
+
         <div class="conteudo">
-            <h2>O que é um SELECT?</h2>
+            <h2>O que é um UPDATE?</h2>
             <p class="bgazul">
-                O comando <b>SELECT</b>, que significa "selecionar", é usado para buscar informações em uma tabela do BD (banco de dados). Geralmente é usado com a cláusula FROM seguido do nome da tabela.
+                O comando <b>UPDATE SET</b>, que significa "atualizar", é usado para modificar registros já existentes em uma tabela do BD. Geralmente usamos o WHERE junto com o UPDATE para evitar alterações em MASSA não planejadas.
 
             </p>
-            <h3>Sintaxe de um SELECT em SQL</h3>
+            <h5>Sintaxe de um UPDATE em SQL</h5>
             <div class="exemplo">
 
                 <code>
-                    SELECT nome_da_coluna, nome_da_coluna2, ...
-                    <br>
-                    FROM nome_da_tabela;
+                    UPDATE nome_da_tabela <br>
+                    SET nome_da_coluna1 = valor1, nome_da_coluna2 = valor2, ... <br>
+                    WHERE condição_desejada;
+
                 </code>
-            </div>
-            <p>   No exemplo abaixo a tabela se chama "CLIENTES" e as colunas que serão exibidas sao "idCliente" e "nomeCliente". O ponto e vírgula ';' indica o fim da Query, mas não é obrigatório.</p>
-            <div class="exemplo">
-                <code>
-                    SELECT idCliente, nomeCliente
-                    <br>
-                    FROM CLIENTES;
-                </code>
-                <br>
 
             </div>
-            <p>Utilize vírgulas para separar os nomes das colunas ou utilize asterisco '*' no lugar do nome das colunas quando quiser trazer <b>todas</b> as colunas existentes na tabela </p>
+            <p class="bgbranco">   No exemplo abaixo a tabela se chama CLIENTES e as colunas que serão alteradas são "UFcliente" e "cidadeCliente".
+                Antes de executar o UPDATE, faça um SELECT na tabela CLIENTES e verifique os valores do Cliente com id = 1.</p>
+            <pre class="cm-s-default code exemplo">
+UPDATE CLIENTES
+SET cidadeCliente = 'Guarapari', UFCliente = 'ES'
+WHERE idCliente = 1;</pre>
+
+            <p class="bgbranco">Após executar o UPDATE, faça outra vez o SELECT e perceba que os campos foram atualizados.
+                 </p>
             <th:block th:insert="tabela"></th:block>
 
             <div>
-                <p>Experimente alterar os comandos SQL apresentados, e monte sua própria instrução. Utilize nosso editor para executar e veja os resultados</p>
+                <p class="bgbranco">Se não usassemos o WHERE, todos os clientes teriam mudado sua cidade e estado para Guarapari, ES. Não queremos isso em um ambiente real! </p>
                 <h3>Alguns conceitos importantes</h3>
-                <div class="bgazul">
+                <p  class="bgbranco"><b>Cuidados com UPDATE</b>: Mesmo usando o WHERE, é necessário verificar se existem mais registros atendendo essa condição.
+                    Se usassemos WHERE cidadeCliente = 'Lagoa Santa' pois vimos que o cliente 1 é de Lagoa Santa, iriamos mudar o cliente 5 também! Então muito cuidado e pratique aqui antes de usar :).</p>
 
-                    <p><b>Tabela</b>: é onde os dados do mesmo 'tipo' são armazenados no formato de linhas e colunas semelhante a uma planilha de Excel.
-                        Por exemplo, os dados de um cliente serão armazenados em uma tabela com nome de "CLIENTES" ou qualquer nome a sua escolha, mas é altamente
-                        recomendado criar nomes intuitivos, que de cara já dizem o tipo de informação que será armazenada ali.
-                    </p>
-                    <p><b>Banco de Dados</b>: é uma coleção de informações organizadas, estruturadas e armazenadas em um computador. Na maioria dos Bancos de Dados
-                        em operação nos dias de hoje, estão guardadas as tabelas que falamos anteriormente.
-                        Um Banco de Dados normalmente é gerenciado por um SGBD (Sistema gerenciador de banco de dados). O SGBD fornece diversas ferramentas para facilidar a manipulação dos dados armazenados. </p>
-                    <p><b>Instrução</b>: Também chamada de Query SQL, uma instrução é o comando completo, como uma frase. Ex: "SELECT idProd, nomeProd FROM PRODUTOS;"</p>
-                    <p><b>Cláusula</b>: São palavras reservadas para montar as Queries (Instruções). Ex: na instrução acima temos a cláusula SELECT e a cláusula FROM. Os nomes das colunas idProd e nomeProd são Termos identificadores, e o nome da tabela PRODUTOS também.</p>
-
-                </div>
             </div>
         </div>
-
     </section>
 </div>
 

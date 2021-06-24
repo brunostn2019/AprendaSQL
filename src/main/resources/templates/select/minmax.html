@@ -1,0 +1,96 @@
+<!DOCTYPE html >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Como fazer um SELECT em SQL?</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <section>
+
+
+        <div>
+                        <th:block th:insert="mensagemValidacao"></th:block>
+
+
+
+
+        </div>
+
+        <div class="conteudo">
+            <h2>O que é a Cláusula LIMIT?</h2>
+            <p class="bgazul">
+                A cláusula <b>LIMIT</b> em MySQL é usada para limitar a quantidade de registros que serão trazidos pela Query, em outros BDs, a sintaxe para esse tipo de query pode mudar totalmente, por exemplo no SQL SERVER seria equivalente ao "SELECT TOP".
+
+            </p>
+            <h5>Sintaxe da LIMIT</h5>
+            <div class="exemplo">
+
+                <code>
+                    SELECT nome_da_coluna, nome_da_coluna2, ...
+                    <br>
+                    FROM nome_da_tabela
+                    <br>
+                    LIMIT numero_de_linhas;
+                </code>
+            </div>
+            <p class="bgbranco">   No exemplo abaixo queremos que o resultado mostre apenas uma linha, <b>mesmo que existam mais linhas no resultado</b>.</p>
+            <pre class="cm-s-default code exemplo">
+SELECT *
+FROM CLIENTES
+LIMIT 1;</pre>
+
+            <p class="bgbranco">   Agora queremos saber quem é o último registro adicionado.
+                Podemos só ordenar por ID decrescente e o primeiro resultado é o que queremos certo? Mas vamos supor que existem milhares de registros na tabela PRODUTOS. Dessa forma será mais rápido usar o LIMIT 1.</p>
+            <pre class="cm-s-default code exemplo">
+SELECT *
+FROM PRODUTOS ORDER BY idProduto DESC
+LIMIT 1;</pre>
+
+
+            <p class="bgbranco">Podemos colocar qualquer número de linhas após a cláusula LIMIT. Para 10 registros temos que usar 'LIMIT 10'.</b> </p>
+
+            <th:block th:insert="tabela"></th:block>
+
+            <div>
+                <p class="bgbranco">Estamos trabalhando em tabelas com poucos registros pois são apenas para nossos estudos. Em um ambiente real podemos ter quantidades enormes de dados. Por isso devemos criar Queries pensando no melhor desempenho possível. </p>
+                <h5>Alguns conceitos importantes</h5>
+
+
+           <p class="bgbranco"><b>DBA</b>: É sigla para "Database administrator" ou Administrador de Banco de Dados. Este é o profissional que vai cuidar do BD da empresa, tendo grande conhecimento na área, as alterações devem ser analisadas por ele, evitando problemas com segurança e desempenho.</p>
+
+
+
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
