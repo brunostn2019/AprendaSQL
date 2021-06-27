@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Como fazer um SELECT em SQL?</title>
+    <title>SQL MIN e MAX</title>
 </head>
 <body>
 <div layout:fragment="content">
@@ -32,46 +32,50 @@
         </div>
 
         <div class="conteudo">
-            <h2>O que é a Cláusula LIMIT?</h2>
+            <h2>SQL MIN e MAX</h2>
             <p class="bgazul">
-                A cláusula <b>LIMIT</b> em MySQL é usada para limitar a quantidade de registros que serão trazidos pela Query, em outros BDs, a sintaxe para esse tipo de query pode mudar totalmente, por exemplo no SQL SERVER seria equivalente ao "SELECT TOP".
+                A função <b>MIN</b> retorna o menor valor da coluna selecionada. E a função <b>MAX</b> retorna o maior.
 
             </p>
-            <h5>Sintaxe da LIMIT</h5>
+            <h5>Sintaxe da MIN</h5>
             <div class="exemplo">
 
                 <code>
-                    SELECT nome_da_coluna, nome_da_coluna2, ...
+                    SELECT MIN(nome_da_coluna)
                     <br>
                     FROM nome_da_tabela
-                    <br>
-                    LIMIT numero_de_linhas;
                 </code>
             </div>
-            <p class="bgbranco">   No exemplo abaixo queremos que o resultado mostre apenas uma linha, <b>mesmo que existam mais linhas no resultado</b>.</p>
+            <h5>Sintaxe da MAX</h5>
+            <div class="exemplo">
+
+                <code>
+                    SELECT MAX(nome_da_coluna)
+                    <br>
+                    FROM nome_da_tabela
+                </code>
+            </div>
+            <p class="bgbranco">   No exemplo abaixo queremos o menor preço (coluna valorProduto) da tabela PRODUTOS.</p>
             <pre class="cm-s-default code exemplo">
-SELECT *
-FROM CLIENTES
-LIMIT 1;</pre>
+SELECT MIN(valorProduto)
+FROM PRODUTOS;</pre>
 
-            <p class="bgbranco">   Agora queremos saber quem é o último registro adicionado.
-                Podemos só ordenar por ID decrescente e o primeiro resultado é o que queremos certo? Mas vamos supor que existem milhares de registros na tabela PRODUTOS. Dessa forma será mais rápido usar o LIMIT 1.</p>
+            <p class="bgbranco">   Agora queremos saber o maior preço.</p>
             <pre class="cm-s-default code exemplo">
-SELECT *
-FROM PRODUTOS ORDER BY idProduto DESC
-LIMIT 1;</pre>
+SELECT MAX(valorProduto)
+FROM PRODUTOS;</pre>
 
 
-            <p class="bgbranco">Podemos colocar qualquer número de linhas após a cláusula LIMIT. Para 10 registros temos que usar 'LIMIT 10'.</b> </p>
+            <p class="bgbranco">Se usarmos essas função em um campo VARCHAR (String) ele retornaria o primeiro nome em ordem alfabética para o MIN e o último nome para o MAX.</b> </p>
 
             <th:block th:insert="tabela"></th:block>
 
             <div>
-                <p class="bgbranco">Estamos trabalhando em tabelas com poucos registros pois são apenas para nossos estudos. Em um ambiente real podemos ter quantidades enormes de dados. Por isso devemos criar Queries pensando no melhor desempenho possível. </p>
+                <p class="bgbranco">Apesar de funcionar em campos STRING essas funções são funções SQL numéricas. Em SQL existem muitas outras funções para vários tipos de dados como string, data, números além de funções como IF ELSE, e etc.</p>
                 <h5>Alguns conceitos importantes</h5>
 
 
-           <p class="bgbranco"><b>DBA</b>: É sigla para "Database administrator" ou Administrador de Banco de Dados. Este é o profissional que vai cuidar do BD da empresa, tendo grande conhecimento na área, as alterações devem ser analisadas por ele, evitando problemas com segurança e desempenho.</p>
+           <p class="bgbranco"><b>Functions SQL</b>: São funções já existentes na linguagem SQL para realizar alguma ação. Existem muitas functions em SQL mas aqui apresentaremos apenas algumas das mais conhecidas.</p>
 
 
 
