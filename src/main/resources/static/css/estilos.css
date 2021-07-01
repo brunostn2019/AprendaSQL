@@ -87,7 +87,7 @@ font-size: clamp(24px, 2vw, 32px) !important;
      padding: 0px 0px 0px 0px;
      }
      #tituloHead{font-size: medium;}
-     #inspiradoW3{font-size:smaller;}
+     #inspiradoW3{font-size:smaller; width:20%;}
 }
 
 @media screen and (max-height: 400px) {
